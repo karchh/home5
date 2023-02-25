@@ -1,6 +1,5 @@
 import java.util.HashMap;
 public class HW_5 {
-
     public static void main(String[] args) {
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put("Первый", "Вася");
@@ -20,5 +19,16 @@ public class HW_5 {
         hashMap.compute(key, (k, v) -> "<" + v + ">");
         System.out.println(hashMap.get(key));
     }
-    
+    System.out.println(hashMap);
+    System.out.println("-".repeat(15));
+    HashMap<String,String> hashMap2 = new HashMap<>();
+    hashMap2.put("Первый", "Оля");
+    hashMap2.put("Четвертый", "Маша");
+    hashMap2.put("Пятый", "Марина");
+    hashMap2.put("Шестой", "Елена");
+    for(String k: hashMap2.keySet()){
+        hashMap2.merge(k,hashMap.getOrDefault(k, "No"),String::concat);
+        System.out.println(hashMap2.get(k));
+    }
+    }
 }
